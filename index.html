@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Fil</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><p>&nbsp;</p><p><strong><span>En ces temps difficiles de confinement, nous sommes toutes et tous très touchés moralement, voire pour certains, physiquement. Mais rien n’arrête l’esprit inventif de jeunes lycéens, et cette longue période d’inertie nous a donné l’idée d’en recueillir témoignages et expériences. Ainsi, les rédactrices et les rédacteurs du Rondeau Mag’ publieront ici régulièrement de courts récits pour illustrer leur nouveau rythme quotidien, leurs nouvelles astuces, leurs impressions, leurs ambitions, et leurs angoisses aussi.</span></strong><span> </span></p><p><span>Vous aussi, envoyez-nous vos récits ! </span><a href='mailto:lerondeaumag@gmail.com' target='_blank' class='url'>lerondeaumag@gmail.com</a></p><p>&nbsp;</p><h5><a name="nos-articles-sur-le-covid-19-" class="md-header-anchor"></a><span>Nos articles sur le Covid-19 :</span></h5><p><span> </span><a href='Public/13 mars - Le Covid19 arrive chez nous.html'><span>le 13 mars - par Wesley Nana-Davies</span></a></p><p>&nbsp;</p><h6><a name="le-fil-est-mis-à-jour-manuellement-actualisez-la-page-pour-accéder-à-la-dernière-version" class="md-header-anchor"></a><span>Le fil est mis à jour manuellement, actualisez la page pour accéder à la dernière version</span></h6><p>&nbsp;</p><h2><a name="confinement-j11--vendredi-27-mars" class="md-header-anchor"></a><span>CONFINEMENT J+11 : VENDREDI 27 MARS</span></h2><h4><a name="anonyme" class="md-header-anchor"></a><span>(anonyme)</span></h4><p><span>Onzième jour. Il semblerait que je commence à devenir un peu fou étrangement. Et pourtant, on a souvent tout chez soi... Je jardine et fais du sport tous les jours, on peut le dire, je ne manque pas d’air. Et pourtant l’anxiété me guette : j’ai eu rendez-vous ce matin (à distance bien entendu) avec ma psychiatre, avec laquelle je me suis assuré que j’allais parfaitement bien ! Et pourtant, ce soir, sans prévenir, au sortir de ma douche, soudain je toussote... Depuis, une gêne dans la gorge me perturbe. Petit rhume ? Arrivée printanière du pollen ? Simplement la gorge serrée à cause du stress ? Ou bien... Non, il ne faut pas y penser ; Mais ce n’est pas le documentaire anxiogène diffusé sur France Info soir qui va me la faire oublier cette gêne... Quand j’y pense, j’aurais dû demander des anxiolytiques à ma psychiatre ce matin. Édouard Philippe a annoncé le prolongement du confinement aujourd’hui, et je me demande sérieusement comment ne pas tomber dans la panique alors que le moyen et le long terme ne sont plus viables à ce jour...</span></p><p>&nbsp;</p><h2><a name="confinement-j10--jeudi-26-mars" class="md-header-anchor"></a><span>CONFINEMENT J+10 : JEUDI 26 MARS</span></h2><h4><a name="geoffroy-gonçalves" class="md-header-anchor"></a><span>Geoffroy Gonçalves</span></h4><p><span>Quand on y pense bien, on a de quoi s&#39;occuper chez soi… Voilà mon p&#39;tit EdT perso :</span></p><p><span>Je me réveille entre neuf heures et dix heures, histoire d&#39;attaquer au mieux la matinée ! P&#39;tit déj&#39; classique, tel qu&#39;on en ferait tous. Puis je sors un peu dehors (heureux d&#39;avoir un jardin), histoire de profiter du beau temps. J&#39;en profite pour lire.</span></p><p><span>Vers douze heures, juste avant de manger, séance Tomb Raider, qui est... voyons... Je vous le conseille quoi !! </span></p><p><span>Puis je mange. S&#39;en suivra une sieste (oui !). Je joue avec une amie à Animal Crossing New Leaf (#nostalgique), puis travaille sur un livre philosophique de Freud en indépendant. Ensuite, goûter. Je fais mes devoirs et regarde un épisode de série. Et hop ! Je ressors avant dix-neuf heures, reprendre un peu l&#39;air ! Puis le dîner ! Miam ! </span></p><p><span>S&#39;en suivra une douloureuse chose : jouer en ligne avec des amis. Sadiques, qui plus est. </span></p><p><span>Une journée marrante quoi ! Profitez-en vous aussi, faites ce que vous voulez, lancez vous dans de nouvelles choses depuis chez vous ! Et surtout, n&#39;arrêtez jamais d&#39;apprendre ! (c&#39;est du copyright, pour les connaisseurs)</span></p><p>&nbsp;</p><h2><a name="confinement-j6--dimanche-22-mars" class="md-header-anchor"></a><span>CONFINEMENT J+6 : DIMANCHE 22 MARS</span></h2><h4><a name="thibault-chardon" class="md-header-anchor"></a><span>Thibault Chardon</span></h4><p><span>Il y a dix jours, le Président de la République s’adressait aux français à vingt heures pour annoncer les premières mesures de prévention contre la pandémie, desquelles allait suivre toute une série d’autres mesures qui nous ont conduit au confinement. Aujourd’hui, on a dépassé le milliard d’humains confinés face au risque sanitaire. On a observé avec horreur la situation en Italie où plus de cinq milles âmes ont péri à ce jour, et on craint un scénario similaire chez nous. Un premier soignant est décédé ce matin dans l’Oise ; Nous applaudissons désormais tous les soirs - comme il est coutume depuis le début du confinement - les infirmières et infirmiers soignants mobilisés, qui risquent leur santé et celle de leurs proches pour sauver le plus de malades possible. De l’espoir, chose rare dans le début d’une crise dont on ne voit pas encore le bout, c’est pourtant bien de l’espoir qu’on a aujourd’hui : un traitement des symptômes avec de l’hydroxychloroquine-Azithromycine (a vos souhaits) semble prometteur, et malgré une véritable hécatombe italienne dans laquelle la ville de Bergame est devenue un symbole dans cette crise mondiale, le nombre d’infections en Italie commence à baisser. Demain, l’exécutif devrait décider du prolongement du confinement à au moins deux semaines supplémentaires. Les conséquences économiques inquiètent tout le monde, mais celles d’ordre social contrastent : la solidarité et la responsabilité individuelle auront raison de l’épidémie. Gabriel Attal, secrétaire d’État auprès du ministre de l’Éducation Nationale a annoncé ce soir mobiliser la réserve civique, autrement dit tous les volontaires bénévoles de plus de seize ans, pour aider toutes les structures associatives locales à assurer leurs actions solidaires. Plus d’un million de postes attendent déjà des volontaires.</span></p><p>&nbsp;</p><h2><a name="confinement-j3-jeudi-19-mars" class="md-header-anchor"></a><span>CONFINEMENT J+3: JEUDI 19 MARS</span></h2><h4><a name="myrtille-grollimund" class="md-header-anchor"></a><strong><span>Myrtille Grollimund</span></strong></h4><p><span>C’est bientôt mon anniversaire, dans huit jours exactement. C’est pas une année banale qui passe comme une autre, parce que dix-huit ans c’est quand même assez symbolique, le passage à l’âge adulte, le vote, le permis tout ça tout ça... Franchement, je ne vais pas vous mentir, j’ai pas trop envie de grandir et d’atteindre cet âge fatidique… Pourquoi ? J’en sais trop rien, je dois avoir peur des responsabilités que cela entraîne... Alors qu’en vrai, je suis certaine que ça ne va pas vraiment changer grand chose, enfin, c’est ce que tout le monde me dit. J’y pense maintenant, parce que j’ai appris que mes proches avaient prévu quelque chose de spécial et que ça n’allait pas pouvoir se faire à cause du confinement. Ça sera reporté évidemment, mais savoir que je vais passer mes dix-huit ans en 2020 confinée chez moi je trouve ça assez cocasse ! Je trouve que c’est une très bonne chose pour endiguer le virus mais c’est sûr qu’au niveau des relations sociales c’est un peu limité, surtout pour une fête d’anniversaire ! Je m’en souviendrai, ça c’est certain ! Et, petit conseil qui n’a absolument rien à voir, quoiqu’un peu, si vous voulez sortir sans risque de contamination (on dirait que je parle d’un accident nucléaire), privilégiez les footing en soirée, c’est idéal niveau température et fréquentation ; On vous prendra pour des fous, mais bon est-ce que c’est vraiment grave au point où on en est ? Allez, bon confinement à tous !</span></p><p>&nbsp;</p><h2><a name="confinement-j-1--lundi-16-mars" class="md-header-anchor"></a><span>CONFINEMENT J-1 : LUNDI 16 MARS</span></h2><h4><a name="thibault-chardon-n35" class="md-header-anchor"></a><strong><span>Thibault Chardon</span></strong></h4><p><span>C’est le premier jour de télétravail aujourd’hui pour bien des personnes, mais bon, c’est aussi le dernier jour avant un confinement de toute la France dont bien des rumeurs ont déjà prévenu l’annonce ce soir à vingt heures par le Président de la République. </span></p><p><span>Aujourd’hui je dois aller chercher une carte SD contenant des tas de rushs provenant des trois journées de tournage du Club Audiovisuel au lycée. J’habite à Bussy-Saint-Georges, je dois me rendre à Villeneuve-Saint-Denis. Avec l’ambition de me dégourdir les jambes une dernière fois, je prends le VTT de la maison et je pars pour une longue ballade à deux roues de 45 kilomètres entre villes et champs. J’ai déjà fait en grande partie le même trajet par le passé, mais là c’était assez hallucinant : en voiture comme à pied, dans la forêt comme dans la ville, il y avait bien plus de gens dehors. Une ambiance assez anxiogène s’était installée ce jour-là, car on le savait tous : le lendemain, nous ne pourrons plus sortir.</span></p><p><span>Le soir même, tout le monde était sur sa télévision à vingt heures pétantes. Après avoir constaté que la vélotypiste qui tapait les sous-titres du discours était beaucoup plus à l’aise que Jeudi dernier, on apprenait sans surprise que le confinement de la population serait effectif dès Mardi, douze heures. « Nous sommes en guerre », a martelé Emmanuel Macron, une guerre contre ce que le directeur général de l’OMS a appelé un « ennemi de l’humanité », le SARS-CoV-2.</span></p></div>
+</body>
+</html>
